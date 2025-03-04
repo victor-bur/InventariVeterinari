@@ -1,18 +1,12 @@
 <?php
-
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
+$servername = "localhost";
+$username = "root";
+$password = "";
 $dbname = "inventariveterinari";
 
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass $dbname);
-if (!$conn)
-{
-    die("No hi ha connexió: ".mysqli_connect_error());
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Conexión fallida: " . $conn->connect_error);
 }
-
-$username = $_POST['username'];
-$contrasenya = $_POST['contrasenya'];
-
-$query = mysqli_query($conn,"SELECT * FROM login where username = '".$username."' and password )
 ?>
